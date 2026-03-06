@@ -1,1 +1,1 @@
-# DITAU-Net
+# This repository is a supplement to our paper "DITAU-Net: Integrating Dual-Interactive Temporal Convolution with Adversarial and U-Shaped Autoencoders for Multivariate Time Series Anomaly Detection"
