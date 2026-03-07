@@ -424,18 +424,6 @@ if __name__ == '__main__':
     print(f'{color.HEADER}Testing {args.model} on {args.dataset}{color.ENDC}')
     loss, y_pred = backprop(0, model, testD, testO, optimizer, scheduler, training=False)
 
-    ### Plot curves 这两个需要还原，手动注释的
-    if not args.test:
-       if 'TranAD' or 'DITAU_Net' in model.name: testO = torch.roll(testO, 1, 0)
-       plotter(f'{args.model}_{args.dataset}', testO, y_pred, loss, labels)
-
-    ### Plot attention
-    if not args.test:
-        if 'DITAU_Net' in model.name:
-            plot_attention(model, 1, f'{args.model}_{args.dataset}')
-        elif 'TranAD' in model.name:
-            plot_attention2(model, 1, f'{args.model}_{args.dataset}')
-
     ### Scores
     df = pd.DataFrame()
     lossT, _ = backprop(0, model, trainD, trainO, optimizer, scheduler, training=False)
