@@ -47,7 +47,7 @@ class Tcn_Local(nn.Module):
 
 
 
-class IICB(L.LightningModule):
+class LICB(L.LightningModule):
     def __init__(self, in_features, drop=0.):
         super().__init__()
         self.conv1 = Tcn_Local(num_outputs=in_features, kernel_size=5, dropout=0.2)
@@ -70,3 +70,4 @@ class IICB(L.LightningModule):
         x = self.conv3(out1 + out2)
 
         return x
+
